@@ -1,0 +1,37 @@
+main{
+  .card-container{
+    @include flex-wrap;
+    .card{
+      width: 25%;
+      margin-top: 50px;
+      padding-left: 15px;
+      position: relative;
+      &:hover .card-hover{
+        opacity: 1;
+      }
+      &:hover img{
+        cursor: pointer;
+        opacity: 0.1;
+      }
+    }
+
+    .card-hover{
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    img.poster{
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: 300px;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+  }
+}
