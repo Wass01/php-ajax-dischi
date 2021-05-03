@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>php dischi</title>
+  <link rel="stylesheet" href="./dist/css/master.css">
+</head>
+<body>
+  <div id="root">
+    <!-- header -->
+    <header>
+        <h3>Filtra per genere</h5>
+        <select v-model="select">
+          <option value="">ALL</option>
+          <option>Metal</option>
+          <option>Pop</option>
+          <option>Rock</option>
+          <option>Jazz</option>
+        </select>
+    </header>
+    <!-- main -->
+    <main>
+      <div class="container card-container">
+        <div class="card" v-for="disco in dischi"
+          v-if="(disco.genre == select || select == '')"
+         >
+          <div class="">
+            <img class="poster" :src="disco.poster" alt="cover">
+            <div class="card-hover">
+              <h3 class="title">{{ disco.title }}</h3>
+              <p id="author">{{ disco.author }}</p>
+              <p id="year">{{ disco.year }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./dist/js/main.js" charset="utf-8"></script>
+</body>
+</html>
